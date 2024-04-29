@@ -1,0 +1,84 @@
+<div class="container-fluid col-6" style="text-align: center;color: blueviolet;">
+    <header>
+        <h1>Student Details</h1>
+    </header>
+</div>
+<div>
+    <div class="card"></div>
+</div>
+<div class="col-6 form-control form-control-sm">
+    <div class="row" style="align-items: center; margin-left: 13.5cm;margin-right: 11cm;">
+        <div class="col">
+            <h6>Student Name:</h6>
+        </div>
+        <div class="col">
+            <p>{{studentView.first_name}} {{studentView.last_name}}</p>
+        </div>
+    </div><br>
+    <div class="row"style="align-items: center; margin-left: 13.5cm;margin-right: 11cm;">
+        <div class="col">
+            <h6>
+                DOB :
+            </h6>
+        </div>
+        <div class="col">
+            <p>
+                {{studentView.date_of_birth | date :  'dd/MM/yyyy'}}
+            </p>
+        </div>
+    </div><br>
+    <div class="row" style="align-items: center; margin-left: 13.5cm;margin-right: 11cm;">
+        <div class="col">
+           <h6>
+            Email Id:
+           </h6> 
+        </div>
+        <div class="col">
+            <p>
+                {{studentView.email}}
+            </p>
+        </div>
+    </div><br>
+    <div class="row" style="align-items: center; margin-left: 13.5cm;margin-right: 11cm;">
+        <div class="col">
+            <h6>
+                Address:
+            </h6>
+        </div>
+        <div class="col">
+            {{studentView.address_form.address}}
+        </div>
+    </div><br>
+    <div class="row" style="align-items: center; margin-left: 13.5cm;margin-right: 11cm;">
+        <div class="col">
+            <h6>
+                District:
+            </h6>
+        </div>
+        <div class="col">
+            <p>{{studentView.address_form.district}}</p>
+        </div>
+    </div><br>
+    <div class="row" style="align-items: left; margin-left: 13.5cm;margin-right: 11cm;">
+        <div class="col">
+            <h6>
+                Subject:
+            </h6>
+        </div>
+        <div class="col mb-3">
+            <p>
+                    {{studentView.subject}}
+            </p>
+        </div>
+    </div>
+    <div class="row" style="align-self: center;">
+        <div class="col"></div>
+        <div class="col">
+            <button type="reset" class="btn  btn-outline-warning" style="width: 120px;" (click)="onEdit()">Edit</button>
+        </div>
+        <div class="col">
+            <button type="reset" class="btn  btn-outline-dark" style="width: 120px;" (click)="onback()">Back</button>
+        </div>
+    </div>
+</div>
+

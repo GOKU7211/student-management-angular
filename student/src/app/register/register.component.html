@@ -1,0 +1,86 @@
+<div class="container-fluid" style="text-align: center;color: blueviolet;">
+    <header>
+        <h1>Student Registration Form</h1>
+    </header>
+</div>
+<div class="container-fluid col-6">
+    <form class="form-control form-control-sm" [formGroup]="registrationForm"
+     (ngSubmit)="createStudentData(registrationForm.value)">
+        <div class="mb-3">
+            <div class="row">
+                <div class="col"><label for="frist" class="form-label">First Name:
+                  <span class="help-block" *ngIf="!registrationForm.get('first_name')?.valid && registrationForm.get('first_name')?.touched">
+                    name is required</span>
+                    <input type="text" class="form-control" id="first" formControlName="first_name" >
+                  </label>
+                </div>
+                
+                <div class="col"><label for="last" class="form-label">Last Name:
+                  <span class="help-block" *ngIf="!registrationForm.get('last_name')?.valid && registrationForm.get('last_name')?.touched">
+                    last name is required</span>
+                    <input type="text" class="form-control" id="last" formControlName="last_name" >
+                  </label>
+                </div>
+                
+                
+            </div>
+            <div>
+                <label  class="form-label">
+                    Birth Day:
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" id="bday" formControlName="date_of_birth"  placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                   </label>
+            </div><br>
+            <div>
+          <label for="exampleInputEmail1" class="form-label">Email address:
+            <span class="help-block" *ngIf="!registrationForm.get('email')?.valid && registrationForm.get('email')?.touched">
+              check your email id</span>
+            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email">
+          </label>
+        </div><br>
+          <div class="form-control">
+            <label><h6>Subject:</h6></label>
+            <div class="row">
+
+            </div>
+            <div class="row">
+              <ng-container *ngFor="let sb of sub; let i = index">
+                <div class="col">
+                  <label class="form-check-label" [for]="'sub_' + i">
+                    <input type="checkbox" class="form-check checkbox" value="{{ sb }}" (change)="onChange($event)" [id]="'sub_' + i">
+                    {{ sb }}
+                  </label>
+                </div>
+              </ng-container>
+            </div><br>
+          </div>
+        </div>
+        <div class="mb-3"><h5>Address:</h5>
+            <div class="form-control" formGroupName="address_form">
+                <label for="address" class="form-label">Address 1:
+                  <span class="help-block" *ngIf="!registrationForm.get('address_form.address')?.valid && registrationForm.get('address_form.address')?.touched">
+                    this field is required</span>
+                </label>
+                    <textarea class="form-control" id="address" formControlName="address"></textarea>
+                <div class="mb-4 ">
+                    <label  for="dist">District:
+                      <span class="help-block" *ngIf="!registrationForm.get('address_form.district')?.valid && registrationForm.get('address_form.district')?.touched">
+                        district required</span>
+                      <select class="form-select" id="dist" placeholder="District" formControlName="district">
+                          <option selected> </option>
+                          <option value="{{dt}}" *ngFor="let dt of dist">{{dt}}</option>
+                          
+                      </select>
+                  </label>
+                  </div>
+            </div>
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Submit</button>
+      </form>
+    
+</div>

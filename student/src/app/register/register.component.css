@@ -1,0 +1,9 @@
+.form-check{
+    width: 17px;
+    height: 10px;
+}
+.help-block{
+    color: red;
+    font-size: small;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
